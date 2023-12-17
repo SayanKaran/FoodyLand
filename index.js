@@ -105,7 +105,7 @@ app.post("/storeTotalPrice", async (req, res) => {
   }
 });
 app.listen(8080, () => {
-  console.log("http://127.0.0.1:8080/");
+  console.log("http://0.0.0.0:8080/");
 });
 
 
