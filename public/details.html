@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rethink+Sans&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="details.css">
+    <title>FoodyLand</title>
+
+</head>
+<body>
+    <div id="preloader"></div>
+    <section class="back">
+        <div class="lg"><p ><a class="logo"href="index.html">FoodyLand</a></p></div>
+    </section>
+   
+    <header>
+    
+</header>
+
+<div class="container">
+    <h3>Sign<span class="gym">Up</span></h3>
+    <form method="post" action="/signup">
+        <div class="gm"><input name="g1" id="g1" type="text" placeholder="User Name" required></div>
+        <div  class="gm"><input name="g2"id="g2" type="email" placeholder="Email" required></div>
+        <div  class="gm"><input name="g3"id="g3" type="tel" placeholder="Phone No" required></div>
+        <div  class="gm"><input name="g4"id="g4" type="text" placeholder="Password" required></div>
+        <div  class="gm"><input name="g5"id="g5" type="text" placeholder="Confirm Password" required></div>
+        <button class="btn" onclick="signup(event)">SignUp</button>
+     </form>
+    </div>
+     <script>
+        function signup(event) {
+           let name = document.getElementById("g1").value;
+           let email = document.getElementById("g2").value;
+           let phone = document.getElementById("g3").value;
+           let password = document.getElementById("g4").value;
+           let confirmPassword = document.getElementById("g5").value;
+           
+           if (password === confirmPassword) {
+               
+           } else {
+               alert("Passwords do not match. Please check and try again.");
+           }
+           }
+       </script>
+
+<script>
+    var loader=document.getElementById('preloader');
+    window.addEventListener("load",function(){
+        loader.style.display="none";
+    })
+</script>
+
+</body>
+</html>

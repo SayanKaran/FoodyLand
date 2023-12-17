@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="food.css"> <!-- Include your main CSS file -->
+    <style>
+        body {
+            background: url('image/foody.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .order-summary {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.816);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .selected-food {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .selected-food img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .food-details {
+            flex-grow: 1;
+        }
+
+        .food-name {
+            font-size: 1.2em;
+            color: #333;
+            margin: 0;
+        }
+
+        .food-price {
+            color: #777;
+            margin-left: 5px;
+            margin-top: 10px;
+            font-size: large;
+        }
+
+        .payment-details {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .payment-details1 {
+            display: flex;
+            justify-content: space-between; /* Align items horizontally with space in between */
+            align-items: center; /* Align items vertically in the center */
+            background-color: #4caf50;
+            padding: 5px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .payment-details1 span {
+            color: white;
+            margin-left: 20px;
+        }
+
+        .payment-details2 {
+            display: none;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .payment-details3 {
+            background-color: #4caf50;
+            padding: 5px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .payment-details3 span {
+            margin-top: 20px;
+            color: white;
+            margin-left: 5px;
+        }
+
+        h4 {
+            color: #333;
+            text-align: left;
+            margin-top: 35px;
+            margin-left: 10px;
+            padding: 1px;
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        #card-number, #expiry-date, #cvv {
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 110px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myradio {
+            margin-top: 1px;
+        }
+
+        #btn2 {
+            border: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            margin-left: 644px;
+            padding: 5px;
+            background-color: rgb(255, 81, 0);
+            color: white;
+            font-size: 13px;
+        }
+
+        #btn2 span {
+            margin: 20px;
+        }
+
+        #btn2:hover {
+            opacity: 0.6;
+        }
+
+        #img {
+            width: 12%;
+            margin-left: 240px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 10px;
+        }
+
+        #img1 {
+            width: 4%;
+            margin-left: 45px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 10px;
+        }
+
+        #img2 {
+            width: 8%;
+            margin-left: 45px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-right: 10px;
+        }
+
+        #img3 {
+            width: 2%;
+            margin-left: 626px;
+            transform: rotate(270deg);
+        }
+
+        /* Google Fonts - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .modal-box {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active .show-modal-btn {
+            display: none;
+        }
+
+        .overlay {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        section.active .overlay {
+            pointer-events: auto;
+        }
+        .modal-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 380px;
+            width: 100%;
+            padding: 30px 20px;
+            border-radius: 24px;
+            background-color: #fff;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .modal-box i {
+            font-size: 70px;
+            color: #4070f4;
+        }
+
+        .modal-box h2 {
+            margin-top: 20px;
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .modal-box h3 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            text-align: center;
+        }
+
+        .modal-box .buttons {
+            margin-top: 25px;
+        }
+
+        .modal-box button {
+            font-size: 14px;
+            padding: 6px 12px;
+            margin: 0 10px;
+        }
+        .close-btn{
+            cursor: pointer;
+        }
+        #preloader{
+    background: white url('image/food.gif') no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+    @media only screen and (max-width: 800px) {
+    
+
+        .payment-details1 {
+            display: none;
+        }
+
+        .payment-details2{
+            display: none;
+        }
+       
+    }
+    
+    </style>
+    <title>Order Summary</title>
+</head>
+<body id="bod">
+    <div id="preloader"></div>
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="selected-food">
+            <div class="food-details">
+                <p class="food-price" id="selectedFoodPrice">Price: <span id="priceValue"></span></p>
+            </div>
+        </div>
+        <div class="payment-details">
+            <h4>Payment Methods</h4>
+        </div>
+        <div class="payment-details1" onclick="pay()">
+            <span>UPI</span>
+            <span><img id="img3" src="image/down-chevron.png" alt="dropdown_sign"></span>
+        </div>
+        <div class="payment-details2">
+            <img id="img" src="image/pngwing.com.png" alt="Phonepay">
+            <img id="img1" src="image/googlepay.png" alt="Phonepay">
+            <img id="img2" src="image/paytm.png" alt="Phonepay">
+        </div>
+        <div class="payment-details3">
+            <input type="checkbox" name="radio" id="myradio">
+            <span>Cash On Delivery</span>
+        </div>
+        <button id="btn2" onclick="order()"><span>Order</span> <p>Now</p></button>
+    </div>
+    <section>
+        <div class="modal-box">
+            <i class="fa-regular fa-circle-check"></i>
+            <h2>Completed</h2>
+            <h3>You have successfully placed your order.</h3>
+            <div class="buttons">
+                <button class="close-btn" onclick="back()">Ok, Close</button>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function pay() {
+            let img3 = document.getElementById('img3');
+            let box = document.getElementsByClassName('payment-details2')[0];
+            if (box.style.display === "none" || box.style.display === "") {
+                img3.style.transform = "rotate(0deg)";
+                box.style.display = "block";
+            } else {
+                img3.style.transform = "rotate(270deg)";
+                box.style.display = "none";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalPriceString = localStorage.getItem('totalPrice');
+
+            if (totalPriceString) {
+                const totalPriceObject = JSON.parse(totalPriceString);
+                const totalPrice = totalPriceObject.totalPrice;
+
+                const priceValueElement = document.getElementById('priceValue');
+                priceValueElement.textContent = `₹${totalPrice.toLocaleString()}`;
+            } else {
+                console.error('Total Price not found in local storage');
+            }
+        });
+
+        function order() {
+            let myradio = document.getElementById('myradio');
+            let bod=document.getElementById('bod');
+            var popup = document.getElementsByClassName('modal-box')[0];
+            if (myradio.checked) {
+                popup.style.opacity=1;
+            } else {
+                alert("Please Select Any Payment Method.");
+            }
+        }
+
+        function back(){
+            window.location.href="index.html";
+        }
+    </script>
+    <script>
+        var loader=document.getElementById('preloader');
+        window.addEventListener("load",function(){
+            loader.style.display="none";
+        })
+    </script>
+</body>
+</html>

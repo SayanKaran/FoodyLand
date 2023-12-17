@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>FoodyLand</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+
+        #error-container {
+            text-align: center;
+        }
+
+        #error-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #error-text {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        #go-back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f8aa0d;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.325);
+        }
+        img{
+            width: 20%;
+            height: auto;
+        }
+        #go-back-button:hover{
+            opacity: 0.7;
+        }
+        #preloader {
+  background: white url('image/food.gif') no-repeat center center;
+  background-size: 30%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+@media screen and (max-width: 950px) and (min-width: 421px){
+    img{
+            width: 40%;
+            height: auto;
+        }
+}
+@media screen and (max-width: 420px){
+    img{
+            width: 60%;
+            height: auto;
+        }
+}
+    </style>
+</head>
+<body>
+    <div id="preloader"></div>
+    <div id="error-container">
+        <img id="error-image" src="image/usernf.jpg" alt="Internal Server Error Image">
+        <p id="error-text">User not found.</p>
+        <button id="go-back-button" onclick="mainpage()">SignUp</button>
+    </div>
+
+    <script>
+        var loader=document.getElementById('preloader');
+        window.addEventListener("load",function(){
+            loader.style.display="none";
+        })
+
+        function mainpage(){
+            window.location.href='details.html';
+        }
+    </script>
+</body>
+</html>

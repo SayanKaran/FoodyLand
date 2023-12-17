@@ -1,0 +1,412 @@
+/* General Styles */
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Background Styles */
+.back {
+    background-image: url("image/food.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    display: grid;
+    filter: brightness(1.1);
+ 
+}
+body::-webkit-scrollbar {
+    width: 0em;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* You can set a color if you want */
+  }
+  
+.back::before {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Header Styles */
+#cl {
+    color: rgb(238, 163, 0);
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 1px -1px 10px rgba(233, 202, 0, 0.933);
+    cursor: default;
+}
+
+h3 {
+    color: rgba(240, 248, 255, 0.814);
+    font-family: 'Satisfy', sans-serif;
+    font-size: 120px;
+    font-weight: lighter;
+    text-align: center;
+    cursor: default;
+}
+
+.font {
+    font-family: 'Kalnia', sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    cursor: default;
+}
+
+.fn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'Bungee Spice';
+    font-size: 20px; /* Increase font size for better visibility */
+    text-shadow: 0px 0px 10px rgba(243, 210, 0, 0.87);
+    text-decoration: none;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 8px;
+    margin-right: 20px;
+}
+
+.nb {
+    background-size: cover;
+    position: fixed;
+    overflow: hidden;
+    text-align: right;
+    right: 0;
+}
+
+.nb li {
+    display: inline-block;
+    padding: 15px 10px;
+    right: 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.nb a {
+    color: white;
+    text-decoration: none;
+    font-family: "Rethink Sans", Arial, Helvetica, sans-serif;
+}
+
+.nb li:hover {
+    background-color: rgba(243, 170, 0, 0.808);
+    cursor: pointer;
+}
+
+.back .nb ul li a.active {
+    color: rgba(243, 210, 0, 0.87);
+}
+
+.vl {
+    border-left: 1px solid rgb(255, 255, 255);
+    height: 50px;
+    margin-left: 10px;
+  }
+
+.lg {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#btn {
+    margin-left: 19px;
+}
+
+
+button {
+    background-color: rgba(228, 160, 0, 0.979);
+    color: rgba(55, 0, 0, 0.781);
+    padding: 4px;
+    border-radius: 10px;
+    font-family: "Rethink Sans";
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: azure;
+    color: black;
+}
+
+/* Food Display Styles */
+.fd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    margin: 0 20px;
+    row-gap: 50px;
+}
+
+.row {
+    text-align: left;
+    
+}
+
+.row:hover {
+    cursor: pointer;
+    color: rgb(238, 163, 0);
+}
+
+.row img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 20px 0 20px;
+    transition: all 0.3s ease 0s;
+}
+
+.row img:hover {
+    opacity: 0.7;
+}
+
+#main {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    color: rgb(238, 163, 0);
+    font-family: 'Nova Square', sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    cursor: default;
+    text-shadow: 0.5px -0.5px 10px rgba(243, 210, 0, 0.87);
+}
+
+.fsize {
+    text-align: left;
+    margin-left: 10px;
+}
+#fsize{
+    margin-top: 30px;    
+}
+#fsize1{
+    margin-left: 10px;
+    margin-top: 30px;    
+}
+#btn1{
+    border: none;
+    border-radius: 30px;
+    margin-left: 260px;
+    padding: 5px;
+    background-color: rgb(255, 81, 0);
+    color: white;
+    font-size: 13px;
+}
+
+#btn1 span{
+    margin: 20px;
+}
+
+#btn1:hover{
+    opacity: 0.6;
+}
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .back {
+        background: url("image/f.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        height: 100vh;
+    }
+
+    #cl {
+        font-size: 38px;
+        margin-top: 1px;
+    }
+
+    h3 {
+        color: rgba(240, 248, 255, 0.728);
+        font-size: 50px;
+    }
+
+    .logo {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nb {
+        text-align: center;
+    }
+}
+
+#preloader{
+    background: white url('image/food.gif') no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+#imag {
+        display: none; /* Initially hide the image */
+    }
+
+
+
+    .sidebar{
+        position: fixed;
+        top: 0; 
+        right: -20px;
+        height: 100vh;
+        width: 250px; 
+        z-index: 999;
+        background-color:rgba(255, 255, 255, 0.183);
+        backdrop-filter: blur(20px);
+        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        
+    }
+    .sidebar li{
+        width: 100%;
+        margin-top: 38px;
+        margin-left: 5px;
+        
+    }
+    .sidebar li a{
+        text-decoration: none;
+        color: white;
+    }
+    .sidebar li a:hover{
+        color:rgba(243, 210, 0, 0.87);
+    }
+    #btn1{
+        margin-top: 38px;
+    }
+
+
+    @media screen and (max-width: 580px) {
+        .nb ul {
+            display: none; /* Hide the navbar */
+        }
+    
+        #imag {
+            display: flex; 
+            margin-top: 13px;
+            
+        }
+    }
+    

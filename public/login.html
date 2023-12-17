@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rethink+Sans&family=Satisfy&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodyLand</title>
+    <link rel="stylesheet" href="login.css">
+    
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <section class="back">
+        <div class="lg"><p ><a class="logo"href="index.html">FoodyLand</a></p></div>
+    </section>
+   
+    <header>
+</header>
+<div class="container">
+    <h3>Log<span class="gym">in</span></h3>
+    <form method="post" action="/login">
+       <div  class="gm"><input id="g2" name="g2"type="email" placeholder="Email" required></div>
+       <div  class="gm1"><input id="g4"name="g4" type="password" placeholder="Password" required></div>
+       <input type="checkbox" id="myCheckbox" name="myCheckbox" onchange="rememberMe()">
+       <span class="rem">Remember me</span>
+       <span class="forgot"><a href="maintain.html">Forgot Password?</a></span>
+       <button class="btn" onclick="login(event)">Login</button>
+       <hr>
+       <button class="btn1" onclick="signup(event)">SignUp</button>
+    </form>
+</div>
+
+<script>
+    
+ function rememberMe() {
+            var emailInput = document.getElementById("g2");
+            var passwordInput = document.getElementById("g4");
+            var rememberCheckbox = document.getElementById("myCheckbox");
+
+            // Check if the checkbox is checked
+        if (rememberCheckbox.checked) {
+                // Set cookies with a 6-month expiry
+            var encryptedEmail = encodeURIComponent(CryptoJS.AES.encrypt(emailInput.value, 'secretKey').toString());
+            var encryptedPassword = encodeURIComponent(CryptoJS.AES.encrypt(passwordInput.value, 'secretKey').toString());
+            document.cookie = `rememberedEmail=${encryptedEmail}; expires=${getCookieExpiry(6)}`;
+            document.cookie = `rememberedPassword=${encryptedPassword}; expires=${getCookieExpiry(6)}`;
+            
+        } else {
+                // Clear cookies if the checkbox is unchecked
+                document.cookie = "rememberedEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                document.cookie = "rememberedPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            }
+        }
+
+        window.addEventListener("load", function () {
+            var emailCookie = getCookie("rememberedEmail");
+            var passwordCookie = getCookie("rememberedPassword");
+
+            if (emailCookie) {
+                // Decode and decrypt the email before setting the input field value
+                var decryptedEmail = CryptoJS.AES.decrypt(decodeURIComponent(emailCookie), 'secretKey').toString(CryptoJS.enc.Utf8);
+                document.getElementById("g2").value = decryptedEmail;
+            }
+
+            if (passwordCookie) {
+                // Decode and decrypt the password before setting the input field value
+                var decryptedPassword = CryptoJS.AES.decrypt(decodeURIComponent(passwordCookie), 'secretKey').toString(CryptoJS.enc.Utf8);
+                document.getElementById("g4").value = decryptedPassword;
+            }
+        });
+
+        // Function to get a specific cookie value by name
+        function getCookie(name) {
+            var cookies = document.cookie.split("; ");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].split("=");
+                if (cookie[0] === name) {
+                    return cookie[1];
+                }
+            }
+            return "";
+        }
+
+function signup(event) {
+    event.preventDefault();
+    window.location.href = "details.html";
+}
+</script>
+
+<script>
+    var loader=document.getElementById('preloader');
+    window.addEventListener("load",function(){
+        loader.style.display="none";
+    })
+</script>
+
+</body>
+</html>

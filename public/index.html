@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="food.css">
+    <link rel="stylesheet"  rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kalnia:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rethink+Sans&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+    <title>FoodyLand</title>
+</head>
+<body >
+    <div id="preloader"></div>
+    
+    <section class="back">
+        <div class="lg"><p ><a class="logo"href="index.html">FoodyLand</a></p>
+            </div>
+            
+    <nav class="nb">
+        
+        <ul>
+            <li >
+                <a href="index.html" class="active">HOME</a>
+            </li>
+            <li>
+                <a href="about.html" target="_blank">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="contact.html" target="_blank">CONTACT</a>
+            </li>
+            <span class="vl"></span>
+                <button id="btn" onclick="signup()">Login</button>
+        </ul>
+        <span id="imag"><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/menu--v6.png" alt="menu--v6" onclick="sidebar()"/></span></nav>
+        <nav class="sidebar">
+        
+            <ul>
+                <li><img width="24" height="24" src="https://img.icons8.com/material-rounded/24/FFFFFF/multiply--v1.png" alt="multiply--v1" onclick="closing()"/></li>
+                <li >
+                    <a href="index.html" class="active">HOME</a>
+                </li>
+                <li>
+                    <a href="about.html" target="_blank">ABOUT</a>
+                </li>
+                
+                <li>
+                    <a href="contact.html" target="_blank">CONTACT</a>
+                </li>
+                <li><button id="btn2"onclick="signup()">Login</button></li>
+            </ul>
+            </nav>
+        
+    <div class="fn">
+        <p id="cl">Premium</p>
+        <p class="font">Quality</p>
+        <h3>Tasty Food</h3>
+        <h3>& Dishes</h3>
+    </div></section>
+</div>
+</section>
+
+    <script>
+        function menu(){
+            window.location.href = "menu.html";
+        }
+        function signup(){
+            window.location.href = "login.html";
+        }
+        var loader=document.getElementById('preloader');
+        window.addEventListener("load",function(){
+            loader.style.display="none";
+        })
+
+        function sidebar(){
+            let opening=document.querySelector('.sidebar');
+            opening.style.display="flex";
+        }
+        function closing(){
+            let closing=document.querySelector('.sidebar');
+            closing.style.display="none";
+        }
+    </script>
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="about.html">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Culinary Delights</h4>
+                    <ul>
+                        <li><a href="#">Gourmet Foods</a></li>
+                        <li><a href="#">Artisanal Ingredients</a></li>
+                        <li><a href="#">Foodie Collections</a></li>
+                        <li><a href="#">Exquisite Desserts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/karan.sayan.509" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/your_entertainer__sayan/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sayan-karan-834997264/"><i class="fab fa-linkedin-in"target="_blank"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+</body>
+</html>

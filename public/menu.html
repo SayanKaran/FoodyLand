@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rethink+Sans&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body class="">
+    <div id="preloader"></div>
+    <div class="lg"><p ><a class="logo"href="food.html">FoodyLand</a></p></div>
+    <div class="container">
+        <header>
+            <h1>Your Shopping Cart</h1>
+            <div class="shopping">
+                <img src="image/shopping.svg" style="cursor: pointer;">
+                <span class="quantity">0</span>
+            </div>
+        </header>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+        <h1>Bag</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            
+            <div class="total"id="totalPrice" style="cursor: pointer;" onclick="pay()">0</div>
+            <div class="closeShopping" style="cursor: pointer;">Close</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        var loader=document.getElementById('preloader');
+        window.addEventListener("load",function(){
+            loader.style.display="none";
+        })
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const totalPriceElement = document.getElementById('totalPrice');
+    
+    totalPriceElement.addEventListener('click', function () {
+        // Get the total price value (you might need to adjust this based on your HTML structure)
+        const totalPrice = parseFloat(totalPriceElement.innerText.replace('₹', '').replace(',', ''));
+        localStorage.setItem('totalPrice', JSON.stringify({ totalPrice }));
+        // Send a POST request to the server to store the total price
+        fetch('/storeTotalPrice', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ totalPrice })
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+    });
+});
+ function pay(){
+    window.location.href="orderbill.html"
+ }
+
+    </script>
+    
+</body>
+</html>
