@@ -235,13 +235,13 @@ button:hover {
     }
 
     #cl {
-        font-size: 38px;
-        margin-top: 1px;
+        font-size: 50px;
+        margin-top: -424px;
     }
 
     h3 {
         color: rgba(240, 248, 255, 0.728);
-        font-size: 50px;
+        font-size: 70px;
     }
 
     .logo {
@@ -409,4 +409,14 @@ ul{
             
         }
     }
+    @media only screen and (max-width: 280px){
+        #cl {
+            font-size: 40px;
+            margin-top: -300px;
+        }
     
+        h3 {
+            color: rgba(240, 248, 255, 0.728);
+            font-size: 50px;
+        }
+    }
