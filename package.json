@@ -10,7 +10,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon index.js"
+    "nodemon": "nodemon index.js",
+    "dev": "DB_STRING=mongodb+srv://Sayan:4D0E2xyIDlN7onUv@foodyland.ocqotpf.mongodb.net/foodapp?retryWrites=true&w=majority"
   },
   "author": "",
   "license": "ISC",
